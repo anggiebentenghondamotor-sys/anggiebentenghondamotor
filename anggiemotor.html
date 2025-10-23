@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anggie Afdila | Your Trusted Honda Partner in Medan</title>
+    <meta name="description" content="Experience a new level of service with Anggie Afdila. Your trusted partner for finding the perfect Honda in Medan. Get exclusive offers and a seamless buying journey.">
+    
+    <!-- Google Fonts: Poppins & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- Global Styles & Variables --- */
+        :root {
+            --primary-color: #E31937;
+            --secondary-color: #003D7A;
+            --accent-color: #FDB913;
+            --text-color: #2c3e50;
+            --light-gray: #f4f7f6;
+            --dark-bg: #1a1a1a;
+            --white: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --container-width: 1200px;
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h2 { font-size: 3rem; color: var(--secondary-color); }
+        h3 { font-size: 2rem; color: var(--primary-color); }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .section-grey {
+            background-color: var(--light-gray);
+        }
+        
+        .section-dark {
+            background-color: var(--dark-bg);
+            color: var(--white);
+        }
+        .section-dark h2, .section-dark h3 {
+            color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-color), #ff4458);
+            color: var(--white);
+            box-shadow: 0 5px 20px rgba(227, 25, 55, 0.4);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(227, 25, 55, 0.5);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .btn-large {
+            padding: 20px 45px;
+            font-size: 1.1rem;
+        }
+
+        /* --- Header & Navigation --- */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        .header.scrolled {
+            padding: 5px 0;
+        }
+        .header.scrolled .logo {
+            font-size: 1.4rem;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .navbar a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 35px;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        .navbar a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
+            height: 100vh;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            padding: 60px 40px;
+            border-radius: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        /* --- About Section --- */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-img-wrapper {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            margin: 0 auto;
+        }
+        .about-img-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            z-index: -1;
+            border-radius: 20px;
+            animation: rotate 10s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .about-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            border: 5px solid var(--white);
+        }
+
+        .about-text h3 {
+            margin-bottom: 25px;
+            font-size: 2.2rem;
+        }
+        .about-text p {
+            margin-bottom: 30px;
+            color: var(--dark-gray);
+            font-size: 1.1rem;
+        }
+
+        .features {
+            margin-bottom: 40px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-color);
+        }
+        .feature-item i {
+            color: var(--primary-color);
+            margin-right: 15px;
+            font-size: 1.5rem;
+            margin-top: 3px;
+        }
+
+        /* --- Product Section --- */
+        .product-category {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .product-category h3 {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            text-align: center;
+            padding: 40px 30px;
+            transition: var(--transition);
+            border: 1px solid #e0e0e0;
+            position: relative;
+            overflow: hidden;
+        }
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+        .product-card:hover::before {
+            left: 100%;
+        }
+        .product-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: 220px;
+            object-fit: contain;
+            margin-bottom: 25px;
+            transition: var(--transition);
+        }
+        .product-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .product-card h4 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .product-card p {
+            color: var(--dark-gray);
+            margin-bottom: 25px;
+            font-size: 1rem;
+            min-height: 50px;
+        }
+
+        .product-card .price {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            margin-bottom: 30px;
+        }
+        .product-card .price span {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+
+        /* --- Testimonial Section --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        .testimonial-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--primary-color);
+            transition: var(--transition);
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 25px;
+            color: var(--dark-gray);
+            font-size: 1.1rem;
+        }
+        .testimonial-card .author {
+            display: flex;
+            align-items: center;
+        }
+        .testimonial-card .author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 20px;
+            object-fit: cover;
+        }
+        .testimonial-card .author h5 {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        .testimonial-card .author span {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+
+        /* --- Promo Section (Dark Theme) --- */
+        .promo-banner {
+            background: linear-gradient(135deg, #2c3e50, var(--dark-bg));
+            color: var(--white);
+            padding: 70px 50px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            border: 1px solid var(--glass-border);
+        }
+        .promo-banner h3 {
+            font-size: 2.8rem;
+            margin-bottom: 40px;
+            color: var(--accent-color);
+        }
+        .promo-banner ul {
+            list-style: none;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+            text-align: left;
+        }
+        .promo-banner ul li {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .promo-banner ul li i {
+            color: var(--accent-color);
+            margin-right: 20px;
+            font-size: 1.3rem;
+        }
+
+        /* --- Location Section --- */
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .location-info h3 {
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+        }
+        .location-info p {
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+            font-size: 1.1rem;
+        }
+        .location-info p i {
+            color: var(--primary-color);
+            margin-right: 15px;
+            width: 20px;
+        }
+        .map-wrapper {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            height: 500px;
+        }
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- Contact Section --- */
+        .contact-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px auto;
+            color: var(--dark-gray);
+            font-size: 1.2rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            background: var(--white);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            text-decoration: none;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+        .contact-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .contact-item i {
+            font-size: 3rem;
+            margin-right: 25px;
+            color: var(--primary-color);
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 50px 0;
+        }
+        .footer p {
+            margin-bottom: 10px;
+        }
+        .footer i {
+            color: var(--accent-color);
+        }
+
+        /* --- Scroll Reveal Animations --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 1s ease;
+        }
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 1s ease;
+        }
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .about-content, .location-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .about-img-wrapper {
+                width: 280px;
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .navbar {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--white);
+                flex-direction: column;
+                justify-content: start;
+                align-items: center;
+                padding-top: 50px;
+                transition: var(--transition);
+            }
+            .navbar.active {
+                left: 0;
+            }
+            .navbar a {
+                margin: 20px 0;
+                font-size: 1.3rem;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .promo-banner h3 {
+                font-size: 2rem;
+            }
+            .hero-content {
+                padding: 40px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigasi -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="#" class="logo">Honda <span>by Anggie</span></a>
+            <nav class="navbar">
+                <a href="#home">Beranda</a>
+                <a href="#about">Tentang Saya</a>
+                <a href="#products">Motor</a>
+                <a href="#promo">Promo</a>
+                <a href="#location">Lokasi</a>
+                <a href="https://wa.me/6281260123728?text=Halo%20Kak%20Anggie,%20saya%20tertarik%20dengan%20motor%20Honda" target="_blank" class="btn btn-primary">Hubungi Saya</a>
+            </nav>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content reveal">
+                    <h1>Taklukkan Jalanan, Raih Mimpi Anda.</h1>
+                    <p>Bersama saya, Anggie Afdila, temukan bukan hanya sebuah motor, tapi sebuah partner setia yang mengerti setiap perjalanan hidup Anda. Pengalaman membeli motor Honda tidak akan pernah sama lagi.</p>
+                    <div class="hero-buttons">
+                        <a href="https://wa.me/6281260123728?text=Halo%20Kak%20Anggie,%20saya%20mau%20tanya-tanya%20motor%20Honda" target="_blank" class="btn btn-primary btn-large"><i class="fab fa-whatsapp"></i> Mulai Perjalanan Anda</a>
+                        <a href="#products" class="btn btn-secondary btn-large">Jelajahi Koleksi</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tentang Saya Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title reveal">Mengapa Saya Adalah Pilihan Tepat Anda?</h2>
+                <div class="about-content">
+                    <div class="about-img-wrapper reveal-left">
+                        <!-- FOTO ANDA DENGAN BINGKAI YANG LEBIH MENARIK -->
+                        <img src="https://z-cdn-media.chatglm.cn/files/1630b8af-9ec0-4ed1-989d-812cfbe03b51_IMG-20251022-WA0045.jpg?auth_key=1792685848-ec8e78c6457941c4b367868f39dd1bde-0-29d11b8459174cae15b02c432865a848" alt="Foto Anggie Afdila Sales Honda" class="about-img">
+                    </div>
+                    <div class="about-text reveal-right">
+                        <h3>Halo, Saya Anggie Afdila</h3>
+                        <p>Saya bukan hanya menjual motor; saya membangun kepercayaan. Di <strong>CV. BENTENG HONDA MOTOR</strong>, saya berdedikasi untuk memberikan Anda lebih dari sekadar transaksi—saya memberikan solusi, kemudahan, dan kepastian.</p>
+                        <div class="features">
+                            <div class="feature-item reveal">
+                                <i class="fas fa-rocket"></i>
+                                <span><strong>Proses Express & Tanpa Drama.</strong> Waktu Anda berharga. Saya pastikan proses dari pilihan hingga serah terima berjalan super cepat dan transparan.</span>
+                            </div>
+                            <div class="feature-item reveal">
+                                <i class="fas fa-handshake"></i>
+                                <span><strong>Konsultasi Personal & Tulus.</strong> Setiap pertanyaan Anda adalah prioritas. Saya akan mendengarkan dan memberikan saran terbaik untuk kebutuhan Anda.</span>
+                            </div>
+                            <div class="feature-item reveal">
+                                <i class="fas fa-tag"></i>
+                                <span><strong>Harga Spesial & Bonus Melimpah.</strong> Saya berjuang untuk Anda agar mendapatkan penawaran terbaik yang tidak akan Anda temukan di tempat lain.</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/6281260123728?text=Halo%20Kak%20Anggie,%20saya%20mau%20konsultasi%20pembelian%20motor" target="_blank" class="btn btn-primary btn-large">Yuk, Ngobrol Sambil Minum Kopi!</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Produk Section -->
+        <section id="products" class="section section-grey">
+            <div class="container">
+                <h2 class="section-title reveal">Galeri Motor Honda Pilihan Anda</h2>
+                
+                <div class="product-category reveal">
+                    <h3>Skutik Ikonik untuk Gaya Hidup Anda</h3>
+                </div>
+                <div class="product-grid">
+                    <div class="product-card reveal">
+                        <img src="https://www.astra-honda.com/wp-content/uploads/2023/01/1-BeAT-Street-White-Premium-Red-Black.png" alt="Honda BeAT">
+                        <h4>Honda BeAT Series</h4>
+                        <p>Ikon kelincahan dan efisiensi. Sahabat sejati di jalanan kota yang tidak akan mengecewakan.</p>
+                        <div class="price">Mulai dari <span>Rp 17 Jutaan</span></div>
+                        <a href="https://wa.me/6281260123728?text=Halo%20Kak%20Anggie,%20saya%20mau%20tanya%20motor%20BeAT" target="_blank" class="btn btn-outline">Cek Promo</a>
+                    </div>
+                    <div class="product-card reveal">
+                        <img src="https://www.astra-honda.com/wp-content/uploads/2022/03/1-New-Vario-160-Black-Blue.png" alt="Honda Vario">
+                        <h4>Honda Vario 160</h4>
+                        <p>Kombinasi sempurna teknologi canggih, desain aerodinamis, dan performa yang memukau.</p>
+                        <div class="price">Mulai dari <span>Rp 26 Jutaan</span></div>
+                        <a href="https://wa.me/6281260123728?text=Halo%20Kak%20Anggie,%20saya%20mau%20tanya%20motor%20Vario" target="_blank" class="btn btn-outline">Cek Promo</a>
+                    </div>
+                    <div class="product-card reveal">
+                        <img src="https://www.astra-honda.com/wp-content/uploads/2023/01/1-Scoopy-White-Red.png" alt="Honda Scoopy">
+                        <h4>Honda Scoopy</h4>
+                        <p>Ekspresikan diri dengan gaya retro-modern yang timeless, dilengkapi fitur smart untuk kemudahan Anda.</p>
+                        <div class="price">Mulai dari <span>Rp 22 Jutaan</span></div>
+                        <a href="https://wa.me/6281260123728?text=Halo%20Kak%20Anggie,%20saya%20mau%20tanya%20motor%20Scoopy" target="_blank" class="btn btn-outline">Cek Promo</a>
+                    </div>
+                </div>
+
+                <div class="product-category reveal" style="margin-top: 80px;">
+                    <h3>Performa Tinggi & Petualangan Tanpa Batas</h3>
+                </div>
+                <div class="product-grid">
+                    <div class="product-card reveal">
+                        <img src="https://www.astra-honda.com/wp-content/uploads/2023/01/1-CBR150R-Brave-Red-Black.png" alt="Honda CBR150R">
+                        <h4>Honda CBR150R</h4>
+                        <p>Rasakan adrenalin dengan desain full fairing yang agresif dan mesin yang laju di lintasan.</p>
+                        <div class="price">Mulai dari <span>Rp 38 Jutaan</span></div>
+                        <a href="https://wa.me/6281260123728?text=Halo%20Kak%20Anggie,%20saya%20mau%20tanya%20motor%20CBR150R" target="_blank" class="btn btn-outline">Cek Promo</a>
+                    </div>
+                    <div class="product-card reveal">
+                        <img src="https://www.astra-honda.com/wp-content/uploads/2022/03/1-New-ADV160-Black-Matte.png" alt="Honda ADV160">
+                        <h4>Honda ADV160</h4>
+                        <p>Jelajahi tanpa batas. Skutik adventure yang tangguh di segala medan, siap untuk petualangan Anda.</p>
+                        <div class="price">Mulai dari <span>Rp 40 Jutaan</span></div>
+                        <a href="https://wa.me/6281260123728?text=Halo%20Kak%20Anggie,%20saya%20mau%20tanya%20motor%20ADV160" target="_blank" class="btn btn-outline">Cek Promo</a>
+                    </div>
+                    <div class="product-card reveal">
+                        <img src="https://www.astra-honda.com/wp-content/uploads/2021/11/1-CRF150L-Extreme-Black.png" alt="Honda CRF150L">
+                        <h4>Honda CRF150L</h4>
+                        <p>Dirancang untuk pemberani. Legenda di jalur off-road yang menawarkan ketangguhan dan kebebasan.</p>
+                        <div class="price">Mulai dari <span>Rp 36 Jutaan</span></div>
+                        <a href="https://wa.me/6281260123728?text=Halo%20Kak%20Anggie,%20saya%20mau%20tanya%20motor%20CRF150L" target="_blank" class="btn btn-outline">Cek Promo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial Section -->
+        <section id="testimonials" class="section">
+            <div class="container">
+                <h2 class="section-title reveal">Kepuasan Mereka Adalah Prioritas Saya</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card reveal">
+                        <p>"Pelayanan Kak Anggie luar biasa! Sangat detail, sabar, dan membantu saya dari nol sampai motor impian saya, CBR150R, akhirnya ada di garasi. Highly recommended!"</p>
+                        <div class="author">
+                            <img src="https://i.pravatar.cc/150?img=11" alt="Customer">
+                            <div>
+                                <h5>Rizky Pratama</h5>
+                                <span>Penggemar Sport Bike</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal">
+                        <p>"Makasih banyak Kak Anggie! Proses kreditnya gak pake lama, dan bonusnya banyak. Saya jadi makin semangat kerja dengan motor Scoopy baru saya. Sukses selalu!"</p>
+                        <div class="author">
+                            <img src="https://i.pravatar.cc/150?img=26" alt="Customer">
+                            <div>
+                                <h5>Siti Nurhaliza</h5>
+                                <span>Wirausahawan Muda</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal">
+                        <p>"Dealer resmi dengan harga termurah? Hanya di Kak Anggie. Transaksi aman, nyaman, dan pastinya motor bergaransi resmi. Tidak akan kecewa!"</p>
+                        <div class="author">
+                            <img src="https://i.pravatar.cc/150?img=32" alt="Customer">
+                            <div>
+                                <h5>Budi Santoso</h5>
+                                <span>Kepala Keluarga</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Promo Section (Dark Theme) -->
+        <section id="promo" class="section section-dark">
+            <div class="container">
+                <h2 class="section-title reveal">Penawaran Eksklusif, Waktu Terbatas!</h2>
+                <div class="promo-banner reveal">
+                    <h3><i class="fas fa-fire"></i> Kesempatan Emas Anda Dimulai Sekarang</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> <strong>DP Super Ringan</strong> mulai dari Rp 500 Ribu untuk semua tipe.</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Cicilan Terjangkau</strong> mulai dari Rp 600 Ruan per bulan.</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Gratis Voucher Belanja</strong> Rp 500 Ribu.</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Paket Welcome</strong> Helm, Jaket, & Raincoat eksklusif.</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Proses 1 Hari</strong>, data dibantu, langsung approve!</li>
+                    </ul>
+                    <a href="https://wa.me/6281260123728?text=Halo%20Kak%20Anggie,%20saya%20mau%20klaim%20promo%20spesial%20bulan%20ini" target="_blank" class="btn btn-primary btn-large"><i class="fab fa-whatsapp"></i> Saya Klaim Promo Ini!</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lokasi Section -->
+        <section id="location" class="section section-grey">
+            <div class="container">
+                <h2 class="section-title reveal">Temui Saya di Showroom Resmi Kami</h2>
+                <div class="location-content">
+                    <div class="location-info reveal-left">
+                        <h3>CV. BENTENG HONDA MOTOR</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Jl. Kapten Muslim No.182, Helvetia Tim., Kec. Medan Helvetia, Kota Medan, Sumatera Utara 20117</p>
+                        <p><i class="fas fa-clock"></i> <strong>Jam Operasional:</strong> Senin - Sabtu, 08:00 - 17:00 WIB</p>
+                        <p><i class="fas fa-phone-alt"></i> <strong>Hubungi Saya Langsung:</strong> 0812-6012-3728</p>
+                        <a href="https://maps.app.goo.gl/MxzTTJEaR5qcsph4A?g_st=aw" target="_blank" class="btn btn-primary btn-large"><i class="fas fa-map"></i> Dapatkan Arah di Google Maps</a>
+                    </div>
+                    <div class="map-wrapper reveal-right">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.959950915424!2d98.64773437499144!3d3.5773917965849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131c7c6d2d6a7%3A0x1234567890abcdef!2sCV.%20BENTENG%20HONDA%20MOTOR!5e0!3m2!1sen!2sid!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kontak Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title reveal">Saya Siap Mendengarkan Anda</h2>
+                <p class="contact-subtitle reveal">Ada pertanyaan? Butuh saran? Atau sekadar ingin tahu promo terbaru? Jangan sungkan. Saluran komunikasi saya selalu terbuka untuk Anda.</p>
+                <div class="contact-info">
+                    <a href="https://wa.me/6281260123728" target="_blank" class="contact-item reveal">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>0812-6012-3728</p>
+                        </div>
+                    </a>
+                    <a href="https://www.tiktok.com/@anggiehondaa" target="_blank" class="contact-item reveal">
+                        <i class="fab fa-tiktok"></i>
+                        <div>
+                            <h4>TikTok</h4>
+                            <p>@anggiehondaa</p>
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com/anggiehondaa" target="_blank" class="contact-item reveal">
+                        <i class="fab fa-instagram"></i>
+                        <div>
+                            <h4>Instagram</h4>
+                            <p>@anggiehondaa</p>
+                        </div>
+                    </a>
+                    <a href="https://www.facebook.com/anggie.afdila" target="_blank" class="contact-item reveal">
+                        <i class="fab fa-facebook"></i>
+                        <div>
+                            <h4>Facebook</h4>
+                            <p>anggie afdila</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Anggie Afdila - Your Trusted Honda Partner. All Rights Reserved.</p>
+            <p>Dibuat dengan <i class="fas fa-heart"></i> dan dedikasi penuh untuk Anda.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Mobile Menu Toggle ---
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navbar = document.querySelector('.navbar');
+
+            menuToggle.addEventListener('click', () => {
+                navbar.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.navbar a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navbar.classList.remove('active');
+                });
+            });
+
+            // --- Header Shrink on Scroll ---
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // --- Scroll Reveal Animation ---
+            const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+            function handleScroll() {
+                reveals.forEach(element => {
+                    const windowHeight = window.innerHeight;
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+
+                    if (elementTop < windowHeight - elementVisible) {
+                        element.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', handleScroll);
+            handleScroll(); // Initial check on load
+        });
+    </script>
+</body>
+</html>
